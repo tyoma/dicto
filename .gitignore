@@ -1,0 +1,10 @@
+*.sdf
+*.suo
+.vs
+*.db
+*.opendb
+_*
+ipch/*
+compressor/comressor.vcxproj.user
+recorder/recorder.vcxproj.user
+voice-detector/voice-detector.vcxproj.user
