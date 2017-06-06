@@ -7,6 +7,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "voice-detector", "voice-det
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "comressor", "compressor\comressor.vcxproj", "{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09827C73-E850-407B-AABA-17EDB87FB3A0}"
+	ProjectSection(SolutionItems) = preProject
+		dicto.txt = dicto.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32

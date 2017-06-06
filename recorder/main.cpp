@@ -1,7 +1,9 @@
 #include <dicto-types.h>
 
 #include <functional>
+#include <io.h>
 #include <iostream>
+#include <fcntl.h>
 #include <memory>
 #include <stdexcept>
 #include <stdio.h>
@@ -10,6 +12,8 @@
 #include <mmsystem.h>
 
 using namespace std;
+
+#pragma warning(disable:4996)
 
 namespace dicto
 {
@@ -88,18 +92,12 @@ int main()
 		auto &b = static_cast<dicto::buffer<> &>(data);
 
 		b.release(handle);
-
-		dicto::audio_header output_header = { 0 };
-		
-		output_header.magic = dicto::audio_header::magic_value;
-		output_header.sample_rate = sample_rate;
-		output_header.samples = b.n_samples;
-		output_header.channels = 1;
-		fwrite(&output_header, sizeof(output_header), 1, stdout);
 		fwrite(b.data, 2, b.n_samples, stdout);
 		b.add(handle);
 	}, sample_rate);
 	dicto::buffer<> buffers[2];
+
+	setmode(fileno(stdout), O_BINARY);
 
 	buffers[0].add(static_cast<HWAVEIN>(device.get()));
 	buffers[1].add(static_cast<HWAVEIN>(device.get()));
