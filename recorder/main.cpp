@@ -59,7 +59,7 @@ namespace dicto
 		});
 	}
 
-	template <size_t sample_size = 10000>
+	template <size_t sample_size = 1000>
 	struct buffer : WAVEHDR
 	{
 		enum { n_samples = sample_size } ;
