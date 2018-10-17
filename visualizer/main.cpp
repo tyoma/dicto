@@ -1,4 +1,5 @@
 #include <agge/clipper.h>
+#include <agge/figures.h>
 #include <agge/filling_rules.h>
 #include <agge/path.h>
 #include <agge/rasterizer.h>
@@ -28,6 +29,9 @@ namespace dicto
       DictoApp()
          : _filter_thread([this] { filter(); })
       {
+			_stroke.width(1.0f);
+			_stroke.set_cap(caps::butt());
+			_stroke.set_join(joins::bevel());
       }
 
       ~DictoApp()
@@ -37,14 +41,13 @@ namespace dicto
       enum { buffer_size = 1000 };
       typedef std::int16_t sample;
 
-      class samples_iterator : noncopyable
+      class samples_iterator
       {
       public:
          samples_iterator(const vector<sample> &samples, size_t max_samples, size_t max_height)
             : _samples(samples), _factor_y(0.5f * max_height / numeric_limits<std::int16_t>::max()),
                _offset_y(0.5f * max_height), _max_samples(max_samples), _x(0)
-         {
-         }
+         {	}
 
          unsigned vertex(real_t *x, real_t *y)
          {
@@ -54,6 +57,9 @@ namespace dicto
             *y = _factor_y * _samples[_x] + _offset_y;
             return _x++ == 0 ? path_command_move_to : path_command_line_to;
          }
+
+		private:
+			const samples_iterator &operator =(const samples_iterator &rhs);
 
       private:
          const vector<sample> &_samples;
@@ -74,21 +80,16 @@ namespace dicto
          if (_buffer_r.empty())
             return;
 
-			const rect_i area = { 0, 0, static_cast<int>(surface.width()), static_cast<int>(surface.height()) };
-			platform_blender_solid_color background(0, 0, 0), brush(0, 154, 255);
+			platform_blender_solid_color background(0, 0, 0, 100), brush(0, 154, 255);
 
 			_rasterizer.reset();
+			add_path(_rasterizer, rectangle(0, 0,
+				static_cast<real_t>(surface.width()), static_cast<real_t>(surface.height())));
+			_rasterizer.sort();
+			_renderer(surface, 0, _rasterizer, background, winding<>());
 
-         fill(surface, area, background);
-
-			_stroke.width(1.0f);
-			_stroke.set_cap(caps::butt());
-			_stroke.set_join(joins::bevel());
-
-			samples_iterator i(_buffer_r, surface.width(), surface.height());
-			path_generator_adapter<samples_iterator, stroke> path(i, _stroke);
-
-			add_path(_rasterizer, path);
+			_rasterizer.reset();
+			add_path(_rasterizer, assist(samples_iterator(_buffer_r, surface.width(), surface.height()), _stroke));
          _rasterizer.sort();
 			_renderer(surface, 0, _rasterizer, brush, winding<>());
          _buffer_r.clear();
@@ -127,7 +128,7 @@ namespace dicto
 	};
 }
 
-application *agge_create_application()
+application *agge_create_application(services &)
 {
    return new dicto::DictoApp;
 }
