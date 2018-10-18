@@ -21,12 +21,12 @@ using namespace std;
 
 #pragma warning(disable:4996)
 
-namespace dicto
+namespace visualize
 {
-	class DictoApp : public application
+	class VisuApp : public application
 	{
    public:
-      DictoApp()
+      VisuApp()
          : _filter_thread([this] { filter(); })
       {
 			_stroke.width(1.0f);
@@ -34,7 +34,7 @@ namespace dicto
 			_stroke.set_join(joins::bevel());
       }
 
-      ~DictoApp()
+      ~VisuApp()
       {  _filter_thread.join();  }
 
    private:
@@ -130,5 +130,5 @@ namespace dicto
 
 application *agge_create_application(services &)
 {
-   return new dicto::DictoApp;
+   return new visualize::VisuApp;
 }

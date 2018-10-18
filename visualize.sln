@@ -1,11 +1,9 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2043
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "recorder", "recorder\recorder.vcxproj", "{14D00457-57F9-466E-A366-0F1CA86E56FE}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "voice-detector", "voice-detector\voice-detector.vcxproj", "{292182D5-C135-4F50-987F-7B41BF3F7CB1}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "comressor", "compressor\comressor.vcxproj", "{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{09827C73-E850-407B-AABA-17EDB87FB3A0}"
 	ProjectSection(SolutionItems) = preProject
@@ -43,26 +41,6 @@ Global
 		{14D00457-57F9-466E-A366-0F1CA86E56FE}.Release|Win32.Build.0 = Release|Win32
 		{14D00457-57F9-466E-A366-0F1CA86E56FE}.Release|x64.ActiveCfg = Release|x64
 		{14D00457-57F9-466E-A366-0F1CA86E56FE}.Release|x64.Build.0 = Release|x64
-		{292182D5-C135-4F50-987F-7B41BF3F7CB1}.Debug|Android.ActiveCfg = Debug|x64
-		{292182D5-C135-4F50-987F-7B41BF3F7CB1}.Debug|Win32.ActiveCfg = Debug|Win32
-		{292182D5-C135-4F50-987F-7B41BF3F7CB1}.Debug|Win32.Build.0 = Debug|Win32
-		{292182D5-C135-4F50-987F-7B41BF3F7CB1}.Debug|x64.ActiveCfg = Debug|x64
-		{292182D5-C135-4F50-987F-7B41BF3F7CB1}.Debug|x64.Build.0 = Debug|x64
-		{292182D5-C135-4F50-987F-7B41BF3F7CB1}.Release|Android.ActiveCfg = Release|x64
-		{292182D5-C135-4F50-987F-7B41BF3F7CB1}.Release|Win32.ActiveCfg = Release|Win32
-		{292182D5-C135-4F50-987F-7B41BF3F7CB1}.Release|Win32.Build.0 = Release|Win32
-		{292182D5-C135-4F50-987F-7B41BF3F7CB1}.Release|x64.ActiveCfg = Release|x64
-		{292182D5-C135-4F50-987F-7B41BF3F7CB1}.Release|x64.Build.0 = Release|x64
-		{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}.Debug|Android.ActiveCfg = Debug|x64
-		{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}.Debug|Win32.ActiveCfg = Debug|Win32
-		{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}.Debug|Win32.Build.0 = Debug|Win32
-		{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}.Debug|x64.ActiveCfg = Debug|x64
-		{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}.Debug|x64.Build.0 = Debug|x64
-		{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}.Release|Android.ActiveCfg = Release|x64
-		{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}.Release|Win32.ActiveCfg = Release|Win32
-		{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}.Release|Win32.Build.0 = Release|Win32
-		{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}.Release|x64.ActiveCfg = Release|x64
-		{0F39F4FF-5C77-4B14-B5A0-5A5A72666AFC}.Release|x64.Build.0 = Release|x64
 		{62E8FAFC-8F52-4C41-A35F-92F627B20747}.Debug|Android.ActiveCfg = Debug|x64
 		{62E8FAFC-8F52-4C41-A35F-92F627B20747}.Debug|Win32.ActiveCfg = Debug|Win32
 		{62E8FAFC-8F52-4C41-A35F-92F627B20747}.Debug|Win32.Build.0 = Debug|Win32

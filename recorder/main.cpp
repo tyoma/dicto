@@ -1,5 +1,3 @@
-#include <dicto-types.h>
-
 #include <functional>
 #include <io.h>
 #include <iostream>
@@ -15,7 +13,7 @@ using namespace std;
 
 #pragma warning(disable:4996)
 
-namespace dicto
+namespace recorder
 {
 	typedef function<void(HWAVEIN handle, WAVEHDR &data)> handler_function;
 
@@ -88,14 +86,14 @@ int main()
 {
 	int sample_rate = 44100;
 
-	auto device = dicto::open([&] (HWAVEIN handle, WAVEHDR &data) {
-		auto &b = static_cast<dicto::buffer<> &>(data);
+	auto device = recorder::open([&] (HWAVEIN handle, WAVEHDR &data) {
+		auto &b = static_cast<recorder::buffer<> &>(data);
 
 		b.release(handle);
 		fwrite(b.data, 2, b.n_samples, stdout);
 		b.add(handle);
 	}, sample_rate);
-	dicto::buffer<> buffers[2];
+	recorder::buffer<> buffers[2];
 
 	setmode(fileno(stdout), O_BINARY);
 
