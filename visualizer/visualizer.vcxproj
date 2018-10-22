@@ -29,6 +29,15 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="run.cmd">
+      <DeploymentContent>true</DeploymentContent>
+      <FileType>Document</FileType>
+      <Command>copy "%(FullPath)" "$(TargetDir)%(Filename)%(Extension)"</Command>
+      <Outputs>$(TargetDir)%(Filename)%(Extension)</Outputs>
+      <LinkObjects>false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{62E8FAFC-8F52-4C41-A35F-92F627B20747}</ProjectGuid>
   </PropertyGroup>

@@ -1,0 +1,1 @@
+recorder | visualizer > nul
